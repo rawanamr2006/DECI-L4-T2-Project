@@ -1,0 +1,58 @@
+Command Output :
+----------------
+
+/home/ubuntu/Downloads/ft32: Unix.Malware.Agent-6774375-0 FOUND
+/home/ubuntu/Downloads/ft64: Unix.Malware.Agent-6774336-0 FOUND
+/home/ubuntu/Downloads/wipefs: Unix.Tool.Miner-6443173-0 FOUND
+
+----------- SCAN SUMMARY -----------
+Known viruses: 8874078
+Engine version: 0.100.3
+Scanned directories: 1
+Scanned files: 8
+Infected files: 3
+Data scanned: 2.42 MB
+Data read: 2.40 MB (ratio 1.01:1)
+Time: 100.688 sec (1 m 40 s)
+
+
+
+------------------------------------------------------
+
+
+My Explanation of the Output:
+----------------------------- 
+
+
+Infected Filenames:
+-------------------
+
+/home/ubuntu/Downloads/ft32
+/home/ubuntu/Downloads/ft64
+/home/ubuntu/Downloads/wipefs
+
+
+Malware Detection Names:
+------------------------
+
+Unix.Malware.Agent-6774375-0
+Unix.Malware.Agent-6774336-0
+Unix.Tool.Miner-6443173-0
+
+
+
+Summary:
+--------
+
+
+File Path: /home/ubuntu/Downloads/ft32
+	Malware Detection Name: Unix.Malware.Agent-6774375-0
+	ID: 6774375
+
+File Path: /home/ubuntu/Downloads/ft64
+	Malware Detection Name: Unix.Malware.Agent-6774336-0
+	ID: 6774336
+
+File Path: /home/ubuntu/Downloads/wipefs
+	Malware Detection Name: Unix.Tool.Miner-6443173-0
+	ID: 6443173

