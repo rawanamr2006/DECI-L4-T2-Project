@@ -1,0 +1,27 @@
+Backdoor Details:
+----------------
+
+rouge username: darklord
+
+malicious process: remotesec (PID: 1080)
+
+remote port it is listening on: 56565
+
+
+
+Justification:
+--------------
+
+After the attacker managed to break into the system and escalate their privilege to root, they:
+
+1. created a new user with the rogue username "darklord"
+2. launched a process with the name "remotesec" and PID of "1080" that allows them to log in through a non-standard port number "56565"
+
+
+My Mitigation Steps:
+--------------------
+
+After identifying the backdoor details through system commands and the HIDS logs, I :
+
+1. deleted the user "darklord" using the command : sudo userdel -r darklord
+2. killed the malicious process using the command : sudo kill -9 1080

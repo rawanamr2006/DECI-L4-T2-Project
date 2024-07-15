@@ -1,0 +1,39 @@
+Apache Current Configuration:
+=============================
+
+Looking at the configuration file "/etc/apache2/apache2.conf" , we can see these three lines:
+
+----------------------------------------------
+# These need to be set in /etc/apache2/envvars 
+User ${APACHE_RUN_USER}
+Group ${APACHE_RUN_GROUP}
+----------------------------------------------
+
+According to the commented line, if we look at the configuration file "/etc/apache2/envvars" , we find these two lines:
+
+--------------------------------
+export APACHE_RUN_USER=www-data 
+export APACHE_RUN_GROUP=www-data 
+--------------------------------
+
+So the Current Apache User is "www-data" and the Current Apache Group is "www-data"
+
+
+Configuration Changes:
+======================
+
+1. I created the user "apache-user" using the command: sudo adduser apache-user and created the group using the command: groupadd apache-group
+2. I added the user to the group using the command: sudo usermod -aG apache-group apache-user
+
+3. I changed the ownership of the web content directory to the new user and group using the command: sudo chown -R apache-user:apache-group /var/www/html
+
+4. I modified the "/etc/apache2/envvars" file so that the modified lines are:
+
+export APACHE_RUN_USER=apache-user
+export APACHE_RUN_GROUP=apache-group
+
+5. Finally, I saved the config file and restarted the apache2 service using the command:  sudo service apache2 restart
+
+
+
+ 

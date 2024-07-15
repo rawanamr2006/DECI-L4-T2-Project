@@ -1,0 +1,12 @@
+Additional Security Recommendations for Securing Remote Access:
+---------------------------------------------------------------
+
+The following are some configuration changes recommended , changes are made to the "/etc/ssh/sshd_config" file:
+
+1. change the "Port" to be any other random number than the default port "22" to deflect automated bots looking for open port 22 to brute force credentials
+ 
+2. use the "MaxAuthTries" of some value to prevent brute force attacks and limit authentication tries
+
+3. use authentication keys instead of passwords , you are recommended to use MFA also
+
+4. create a list of allowed users using the "AllowUsers" configuration parameter

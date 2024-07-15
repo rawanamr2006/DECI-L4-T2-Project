@@ -1,0 +1,17 @@
+Apache Version:
+---------------
+
+current Apache httpd server version: Apache/2.4.7 (Ubuntu)
+
+
+
+Configuration change required:
+------------------------------
+
+Modify the file: /etc/apache2/conf-enabled/security.conf by:
+
+1. changing the value of "ServerTokens" to be "Prod" to hide the Apache version and OS from HTTP headers and display the least amount of data (in our case only "Apache", without version or OS)
+
+2. changing the value of "ServerSignature" to "Off" to hide the information from server-generated pages (e.g. Internal Server Error).
+
+After this restart the apache2 service using the command : sudo service apache2 restart
