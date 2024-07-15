@@ -12,13 +12,16 @@ Suspicious File Path:
 
 
 
-Suspicious call out domains: 
+Suspicious call out URLs: 
 ----------------------------
 
 http://darkl0rd.com:7758/SSH-T
 http://darkl0rd.com:7758/SSH-One
 
+Suspecious call out domain:
+---------------------------
 
+darkl0rd.com
 
 Summary About Expected Behavior:
 --------------------------------
